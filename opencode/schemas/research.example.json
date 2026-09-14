@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "contract_revision": "COPY_FROM_CURRENT_CONTRACT",
+  "facts": [
+    {"id": "FACT1", "claim": "A verified implementation fact", "locations": [{"path": "path/to/source", "lines": "10-30"}]}
+  ],
+  "open_questions": []
+}

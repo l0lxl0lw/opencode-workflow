@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "checks": [
+    {
+      "id": "PYTHON",
+      "argv": ["python3", "-B", "-m", "unittest", "discover", "-s", "opencode/tests", "-p", "*_test.py"],
+      "kind": "test",
+      "format": "unittest",
+      "required": true,
+      "allow_skips": false,
+      "env_keys": ["PYTHONPATH", "TMPDIR"]
+    },
+    {
+      "id": "DIFF",
+      "argv": ["git", "diff", "--check"],
+      "kind": "static",
+      "format": "exit",
+      "required": true,
+      "allow_skips": false
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "default": "custom",
+  "defaults": {"model": "YOUR_PROVIDER/YOUR_MODEL", "variant": ""},
+  "profiles": {"custom": {}}
+}

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "default": "astra-high",
+  "roles": {
+    "workflow": {"model": "openai/gpt-5.6-luna-fast", "variant": "medium"},
+    "workflow-ticket": {"model": "openai/gpt-6-astra", "variant": "medium"},
+    "workflow-research": {"model": "openai/gpt-6-astra", "variant": "medium"},
+    "workflow-plan": {"model": "openai/gpt-6-astra", "variant": "medium"},
+    "workflow-execute": {"model": "openai/gpt-5.6-sol", "variant": "xhigh"},
+    "workflow-review": {"model": "openai/gpt-6-astra", "variant": "medium"},
+    "workflow-commit": {"model": "openai/gpt-5.6-luna-fast", "variant": "medium"}
+  },
+  "profiles": {
+    "balanced": {},
+    "baseline": {"workflow-execute": {"model": "openai/gpt-5.6-sol", "variant": "medium"}},
+    "astra-high": {"workflow-execute": {"model": "openai/gpt-6-astra", "variant": "high"}}
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Workflow-owned check manifest (not native OpenCode config)",
+  "type": "object",
+  "required": ["version", "checks"],
+  "properties": {
+    "version": {"const": 1},
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "argv", "kind", "required"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,79}$"},
+          "argv": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "kind": {"enum": ["test", "compile", "lint", "static"]},
+          "format": {"enum": ["go-json", "unittest", "script", "exit"]},
+          "required": {"type": "boolean"},
+          "allow_skips": {"type": "boolean", "default": false},
+          "required_tests": {"type": "array", "items": {"type": "string"}},
+          "success_pattern": {"type": "string"},
+          "skip_pattern": {"type": "string"},
+          "cwd": {"type": "string", "default": "."},
+          "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+          "env_keys": {"type": "array", "items": {"type": "string"}},
+          "env": {"type": "object", "additionalProperties": {"type": "string"}}
+        },
+        "allOf": [
+          {"if": {"properties": {"kind": {"const": "test"}}}, "then": {"required": ["format"], "properties": {"format": {"enum": ["go-json", "unittest", "script"]}}}},
+          {"if": {"required": ["format"], "properties": {"format": {"const": "script"}}}, "then": {"required": ["success_pattern"]}}
+        ]
+      }
+    }
+  },
+  "description": "verify.py additionally enforces unique IDs, required-test/skip rules, relative paths, and correspondence to the approved plan."
+}

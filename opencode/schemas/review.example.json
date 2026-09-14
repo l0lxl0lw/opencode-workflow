@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "contract_revision": "COPY_FROM_CURRENT_CONTRACT",
+  "plan_url": "EXACT_CURRENT_PLAN_URL",
+  "verification_run": "LOCAL_RUN_ID_FROM_CURRENT_VERIFICATION",
+  "verdict": "changes_requested",
+  "findings": [
+    {"id": "F1", "severity": "medium", "required": true, "status": "open", "location": "path/to/source:line", "expected": "Required result", "observed": "Actual result and reproduction"}
+  ],
+  "manual_evidence": []
+}

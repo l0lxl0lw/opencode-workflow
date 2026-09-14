@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "contract_revision": "COPY_FROM_CURRENT_CONTRACT",
+  "steps": ["Implement the bounded change", "Prove required behavior and compatibility"],
+  "facts": [],
+  "check_manifest": {
+    "version": 1,
+    "checks": [
+      {"id": "BEHAVIOR", "argv": ["go", "test", "-json", "-count=1", "./path/to/package"], "kind": "test", "format": "go-json", "required": true, "allow_skips": false, "env_keys": ["TEST_DATABASE_URL"]},
+      {"id": "COMPILE", "argv": ["go", "test", "-run", "^$", "./path/to/affected/package"], "kind": "compile", "format": "exit", "required": true}
+    ]
+  },
+  "coverage": {"R1": {"checks": ["BEHAVIOR", "COMPILE"]}},
+  "baseline_failures": [],
+  "unresolved": []
+}

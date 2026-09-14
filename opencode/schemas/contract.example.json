@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "outcome": "Describe the requested user-visible result",
+  "requirements": [
+    {"id": "R1", "required": true, "expected": "Exact observable behavior, including relevant state effects"}
+  ],
+  "constraints": ["Only the authorized scope; no implicit push or merge"],
+  "exclusions": [],
+  "decisions": ["Record agreed choices and rationale without weakening required behavior"],
+  "unresolved": [],
+  "checkpoint": {"issue_body_sha256": "COPY_FROM_RECONCILED_PACKET", "issue_title_sha256": "COPY_FROM_RECONCILED_PACKET", "comments": {}}
+}
