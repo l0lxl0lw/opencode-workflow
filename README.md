@@ -6,6 +6,38 @@ It includes fresh-stage agents, bounded research specialists, Git and explanatio
 skills, GitHub issue handoffs, content-bound verification, and optional Orca
 coordination. No default GitHub owner or board is configured.
 
+## Purpose
+
+This project grew out of hitting coding-agent usage limits and wanting to keep
+working without rebuilding the workflow around another model. OpenCode provides
+the working interface; configurable model profiles let you choose the model while
+keeping the same stages, handoffs, and acceptance criteria.
+
+The goal is to carry a task through to a verified feature. Experiments with a
+notification-preference reset task showed why that matters: fast runs and high
+review scores could still leave incorrect authorization responses, compilation
+regressions, or rejected valid inputs. Completion needs to be tied to observable
+requirements and checks of the actual change, including any review and repair.
+
+The workflow supports that by:
+
+- Defining the feature contract and acceptance criteria before implementation.
+- Carrying research, plans, and verification evidence between fresh-stage agents
+  through GitHub issue handoffs.
+- Reviewing the resulting change against that contract and making failures
+  explicit so they can be repaired and checked again.
+- Keeping model choices configurable so different settings can be evaluated
+  within the same process.
+
+The next experiment is to apply this discipline to full feature slices: a user
+action, its API behavior and persisted state, and the visible result in the UI.
+The aim is to verify what a user can actually do, including failure cases and
+persistence after reload. The initial backend experiments motivate this direction;
+they have not yet established its end-to-end benefits.
+
+See [purpose and workflow decisions](opencode/docs/rationale.md) for the decision
+rationale, experiment tables, and limits of the comparison.
+
 ## Install and start
 
 Requirements: **Python 3.10+**, Git, and [OpenCode](https://opencode.ai) with a
